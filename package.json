@@ -1,0 +1,22 @@
+{
+  "name": "docx-style-family-compositor",
+  "private": true,
+  "version": "0.2.0",
+  "packageManager": "pnpm@9.15.4",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "dev": "concurrently \"pnpm --filter @compositor/worker dev\" \"pnpm --filter @compositor/web dev\"",
+    "cli:generate": "pnpm --filter @compositor/engine cli:generate",
+    "fixtures:make": "tsx scripts/make-fixtures.ts"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}

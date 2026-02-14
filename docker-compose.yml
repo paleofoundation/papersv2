@@ -1,0 +1,21 @@
+services:
+  worker:
+    build:
+      context: .
+      dockerfile: apps/worker/Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+  web:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: sh -c "npm install && npm run -w apps/web dev"
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_WORKER_URL=http://worker:4000
+    depends_on:
+      - worker

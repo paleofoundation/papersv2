@@ -1,0 +1,22 @@
+{
+  "name": "@compositor/engine",
+  "version": "0.2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "cli:generate": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "@compositor/shared": "workspace:*",
+    "@xmldom/xmldom": "^0.8.10",
+    "jszip": "^3.10.1",
+    "xpath": "^0.0.34"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.8",
+    "tsx": "^4.19.3",
+    "vitest": "^3.0.6"
+  }
+}
